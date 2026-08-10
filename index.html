@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenPick — Pronostici Serie A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo"><span class="dot"></span>GreenPick</div>
+    <div class="nav">
+      <span>Pronostici</span>
+      <span>Classifica</span>
+      <span>Abbonati<span class="badge-pro">PRO</span></span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow" id="eyebrow">Giornata · Serie A</div>
+    <h1>Analisi, non scommesse. Segui il verde.</h1>
+    <p>Analisi gratuite sulla Serie A, aggiornate ogni giornata. Semplici, chiare, verificabili.</p>
+  </div>
+
+  <div class="scoreboard">
+    <div class="scoreboard-inner">
+      <div class="sb-item"><div class="sb-num" id="sb-greenpicked">–</div><div class="sb-label">Greenpicked</div></div>
+      <div class="sb-item"><div class="sb-num" id="sb-scorsa">–</div><div class="sb-label">Scorsa giornata</div></div>
+      <div class="sb-item"><div class="sb-num" id="sb-prossimo">–</div><div class="sb-label">Prossimo agg.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <h2 id="section-title">Tutte le partite</h2>
+      <span id="section-tag">Serie A</span>
+    </div>
+
+    <div id="match-list"></div>
+  </div>
+
+  <div class="lock">
+    <div class="lock-card">
+      <div>
+        <h3>Vuoi tutte le leghe europee?</h3>
+        <p>Premier League, Liga, Bundesliga e altro con l'abbonamento GreenPick.</p>
+      </div>
+      <div class="lock-cta">Abbonati — 8,99€/mese</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Dati aggiornati manualmente ogni giornata · GreenPick © 2026 — questa è una bozza dimostrativa, i dati sono di esempio.
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

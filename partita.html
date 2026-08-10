@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partita · GreenPick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo"><span class="dot"></span>GreenPick</div>
+    <div class="nav">
+      <span>Pronostici</span>
+      <span>Classifica</span>
+      <span>Abbonati<span class="badge-pro">PRO</span></span>
+    </div>
+  </div>
+
+  <div class="hero hero-small">
+    <a class="back-link" href="index.html">← Tutte le partite</a>
+    <h1 id="match-title">Caricamento…</h1>
+    <p id="match-meta"></p>
+  </div>
+
+  <div class="section" id="pick-section" style="padding-top:32px;">
+    <!-- popolato da js/match.js -->
+  </div>
+
+  <div class="section" id="stats-section" style="padding-top:0;">
+    <div class="section-head">
+      <h2>Statistiche a confronto</h2>
+      <span>Giornata in corso</span>
+    </div>
+
+    <div class="stats-grid">
+      <div class="team-card" id="home-team-card">
+        <h3 class="team-name">—</h3>
+        <div class="stat-row"><span class="stat-label">Posizione in classifica</span><span class="stat-value" data-stat="posizione">–</span></div>
+        <div class="stat-row"><span class="stat-label">Partite giocate</span><span class="stat-value" data-stat="giocate">–</span></div>
+        <div class="stat-row"><span class="stat-label">Vittorie</span><span class="stat-value" data-stat="vittorie">–</span></div>
+        <div class="stat-row"><span class="stat-label">Pareggi</span><span class="stat-value" data-stat="pareggi">–</span></div>
+        <div class="stat-row"><span class="stat-label">Sconfitte</span><span class="stat-value" data-stat="sconfitte">–</span></div>
+        <div class="stat-row"><span class="stat-label">Gol fatti</span><span class="stat-value" data-stat="gol-fatti">–</span></div>
+        <div class="stat-row"><span class="stat-label">Gol subiti</span><span class="stat-value" data-stat="gol-subiti">–</span></div>
+      </div>
+
+      <div class="team-card" id="away-team-card">
+        <h3 class="team-name">—</h3>
+        <div class="stat-row"><span class="stat-label">Posizione in classifica</span><span class="stat-value" data-stat="posizione">–</span></div>
+        <div class="stat-row"><span class="stat-label">Partite giocate</span><span class="stat-value" data-stat="giocate">–</span></div>
+        <div class="stat-row"><span class="stat-label">Vittorie</span><span class="stat-value" data-stat="vittorie">–</span></div>
+        <div class="stat-row"><span class="stat-label">Pareggi</span><span class="stat-value" data-stat="pareggi">–</span></div>
+        <div class="stat-row"><span class="stat-label">Sconfitte</span><span class="stat-value" data-stat="sconfitte">–</span></div>
+        <div class="stat-row"><span class="stat-label">Gol fatti</span><span class="stat-value" data-stat="gol-fatti">–</span></div>
+        <div class="stat-row"><span class="stat-label">Gol subiti</span><span class="stat-value" data-stat="gol-subiti">–</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Dati aggiornati manualmente ogni giornata · GreenPick © 2026 — questa è una bozza dimostrativa, i dati sono di esempio.
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/match.js"></script>
+</body>
+</html>
