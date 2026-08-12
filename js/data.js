@@ -5,8 +5,7 @@
 const GIORNATA = {
   numero: 1,
   campionato: 'Serie A',
-  scorsaGiornataEsito: '—',
-  prossimoAggiornamento: 'MAR'
+  scorsaGiornataEsito: '—'
 };
 
 const MATCHES = [
