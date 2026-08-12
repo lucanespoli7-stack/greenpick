@@ -242,15 +242,46 @@ a.ticket:hover .greenpicked-btn{
   color:var(--go);
   margin-bottom:10px;
 }
-.pick-card .pick-outcome{
+.pick-outcome-row{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px 16px;
+  margin-bottom:16px;
+}
+.pick-outcome{
   font-family:'Oswald', sans-serif;
   font-weight:600;
   font-size:22px;
-  margin-bottom:8px;
 }
-.pick-card .pick-note{
+.pick-quota{
+  font-family:'IBM Plex Mono', monospace;
+  font-weight:600;
+  font-size:14px;
+  color:var(--go);
+  background:rgba(111,207,122,0.12);
+  padding:5px 12px;
+  border-radius:6px;
+  white-space:nowrap;
+}
+.pick-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.pick-list li{
   font-size:14px;
   color:#C7D6CF;
+  padding-left:18px;
+  position:relative;
+}
+.pick-list li::before{
+  content:"—";
+  position:absolute;
+  left:0;
+  color:var(--go);
 }
 
 .no-pick-card{
