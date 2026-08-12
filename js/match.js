@@ -19,15 +19,23 @@ function renderTeamCard(containerId, team) {
   card.querySelector('[data-stat="gol-subiti"]').textContent = s.golSubiti;
 }
 
+function formatQuota(quota) {
+  return quota.toFixed(2).replace('.', ',');
+}
+
 function renderPick(match) {
   const pickSection = document.getElementById('pick-section');
 
   if (match.pronostico) {
+    const punti = match.pronostico.analisi.map(punto => `<li>${punto}</li>`).join('');
     pickSection.innerHTML = `
       <div class="pick-card">
         <div class="pick-label">Greenpicked</div>
-        <div class="pick-outcome">${match.pronostico.esito} — ${match.pronostico.etichetta}</div>
-        <p class="pick-note">${match.pronostico.nota}</p>
+        <div class="pick-outcome-row">
+          <div class="pick-outcome">${match.pronostico.esito}</div>
+          <div class="pick-quota">Quota ${formatQuota(match.pronostico.quota)}</div>
+        </div>
+        <ul class="pick-list">${punti}</ul>
       </div>
     `;
   } else {
