@@ -4,7 +4,6 @@ function renderScoreboard() {
   const withPick = MATCHES.filter(m => m.pronostico).length;
   document.getElementById('sb-greenpicked').textContent = `${withPick}/${MATCHES.length}`;
   document.getElementById('sb-scorsa').textContent = GIORNATA.scorsaGiornataEsito;
-  document.getElementById('sb-prossimo').textContent = GIORNATA.prossimoAggiornamento;
 }
 
 function renderSectionHead() {
@@ -19,7 +18,7 @@ function renderMatches() {
 
   MATCHES.forEach(match => {
     const link = document.createElement('a');
-    link.className = 'ticket';
+    link.className = match.pronostico ? 'ticket ticket--picked' : 'ticket';
     link.href = `partita.html?id=${encodeURIComponent(match.id)}`;
 
     const matchInfo = document.createElement('div');
@@ -42,11 +41,6 @@ function renderMatches() {
       badge.className = 'greenpicked-btn';
       badge.textContent = 'Greenpicked →';
       link.appendChild(badge);
-    } else {
-      const noPick = document.createElement('div');
-      noPick.className = 'no-pick';
-      noPick.textContent = 'Pronostico non disponibile';
-      link.appendChild(noPick);
     }
 
     list.appendChild(link);
