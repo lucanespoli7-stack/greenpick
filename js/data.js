@@ -48,6 +48,11 @@ const MATCHES = [
         'Inter squadra rodata, poche modifiche rispetto allo scorso anno, campioni in carica',
         'Monza promossa all’ultimo playoff (miglior classifica regular season vs Catanzaro)',
         'Juric con risultati negativi nelle ultime stagioni'
+      ],
+      analisiEn: [
+        'Inter are a settled squad with few changes from last season, and enter as defending champions',
+        'Monza earned promotion via the play-offs (a better regular-season record than Catanzaro)',
+        'Juric has posted poor results in his recent seasons'
       ]
     }
   },
@@ -64,6 +69,11 @@ const MATCHES = [
         'Como qualificato in Champions ma stagione da iniziare, molti nuovi innesti da assimilare',
         'Servirà tempo prima che il Como raggiunga il ritmo',
         'Udine è un campo ostico'
+      ],
+      analisiEn: [
+        'Como qualified for the Champions League, but the season is just starting with many new signings to bed in',
+        'Como will need time to hit their stride',
+        'Udine is a tough away ground'
       ]
     }
   },
@@ -80,6 +90,11 @@ const MATCHES = [
         'Napoli rivoluzionato dall’arrivo di Allegri',
         'Servirà tempo per l’assestamento della nuova gestione',
         'Allegri storicamente abituato a vittorie di misura'
+      ],
+      analisiEn: [
+        'Napoli have been reshaped by Allegri’s arrival',
+        'The new management will need time to settle in',
+        'Allegri has historically favoured narrow wins'
       ]
     }
   },
@@ -96,6 +111,11 @@ const MATCHES = [
         'Partita all’insegna del non perdere punti in avvio di stagione',
         'Nessun trasferimento rilevante in entrata per il Cagliari',
         'Parma ha ceduto Pellegrino alla Fiorentina'
+      ],
+      analisiEn: [
+        'Both sides will play it cautiously, keen not to drop points this early in the season',
+        'Cagliari made no significant incoming transfers this window',
+        'Parma sold Pellegrino to Fiorentina'
       ]
     }
   },
@@ -128,6 +148,11 @@ const MATCHES = [
         'Ritorno di un allenatore offensivo sulla panchina Atalanta',
         'Prima in casa, occasione favorevole',
         'Sassuolo orfano di Grosso, passato alla Fiorentina'
+      ],
+      analisiEn: [
+        'An attack-minded coach is back on Atalanta’s bench',
+        'A favourable occasion for their home opener',
+        'Sassuolo are without Grosso, who left for Fiorentina'
       ]
     }
   },
@@ -152,6 +177,11 @@ const MATCHES = [
         'Entrambe reduci da cambio allenatore',
         'Bologna priva dei giocatori chiave delle scorse stagioni',
         'Lazio in difficoltà societarie, Gattuso subentrato da poco'
+      ],
+      analisiEn: [
+        'Both sides have just changed manager',
+        'Bologna are missing key players from recent seasons',
+        'Lazio are in a difficult spot off the pitch, with Gattuso only recently appointed'
       ]
     }
   },
@@ -167,17 +197,20 @@ const MATCHES = [
       analisi: [
         'Entrambe squadre propositive con talento offensivo',
         'Fiorentina rinnovata (rosa e allenatore), in fase di adattamento'
+      ],
+      analisiEn: [
+        'Both sides play proactive, attack-minded football',
+        'Fiorentina have been overhauled (squad and coach) and are still adapting'
       ]
     }
   }
 ];
 
-// "DD/MM/YYYY HH:MM" -> "Sab 22/08 · 18:30"
+// "DD/MM/YYYY HH:MM" -> "Sab 22/08 · 18:30" (o "Sat 22/08 · 18:30" in inglese)
 function formatMatchDate(dataOra) {
   const [datePart, timePart] = dataOra.split(' ');
   const [day, month, year] = datePart.split('/').map(Number);
-  const giorni = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];
-  const weekday = giorni[new Date(year, month - 1, day).getDay()];
+  const weekday = STRINGS[getLang()].weekdays[new Date(year, month - 1, day).getDay()];
   return `${weekday} ${datePart.slice(0, 5)} · ${timePart}`;
 }
 
