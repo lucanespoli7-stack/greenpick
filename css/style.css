@@ -9,6 +9,7 @@
   --line:#D9E3DC;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
+html{ scroll-behavior:smooth; }
 body{
   font-family:'Work Sans', sans-serif;
   background:var(--chalk);
@@ -204,6 +205,16 @@ a{ text-decoration:none; color:inherit; }
   font-family:'IBM Plex Mono', monospace;
   font-size:13px;
   color:var(--ink-soft);
+}
+.scroll-link{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:13px;
+  font-weight:600;
+  color:var(--go-deep);
+  white-space:nowrap;
+}
+.scroll-link:hover{
+  color:var(--ink);
 }
 
 /* Match ticket (home page list) */
