@@ -41,7 +41,17 @@ const STRINGS = {
     quotaLabel: 'Quota',
     noPickText: 'Pronostico non ancora disponibile per questa partita.',
     footer: 'GreenPick © 2026',
-    weekdays: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab']
+    weekdays: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
+    schedinaTab: (n, moltiplicatore) => `${n} giocate · x${moltiplicatore}`,
+    schedinaTitle: 'La tua schedina',
+    schedinaEmpty: 'Nessuna giocata selezionata.',
+    schedinaMultiplier: 'Moltiplicatore totale',
+    schedinaStakeLabel: 'Puntata (€)',
+    schedinaPotentialWin: 'Vincita potenziale',
+    schedinaClear: 'Svuota schedina',
+    schedinaAddBtn: '+ Aggiungi',
+    schedinaAddedBtn: '✓ Aggiunta',
+    schedinaBonusNote: "Alcuni bookmaker applicano bonus o maggiorazioni sulle multiple (es. bonus multipla, assicurazione sulla prima giocata). GreenPick non include questi bonus: il moltiplicatore mostrato è il prodotto delle quote selezionate, senza alcuna maggiorazione."
   },
   en: {
     heroTitle: 'Analysis, not betting. Follow the green.',
@@ -79,7 +89,17 @@ const STRINGS = {
     quotaLabel: 'Odds',
     noPickText: 'Prediction not yet available for this match.',
     footer: 'GreenPick © 2026',
-    weekdays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    weekdays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    schedinaTab: (n, moltiplicatore) => `${n} picks · x${moltiplicatore}`,
+    schedinaTitle: 'Your bet slip',
+    schedinaEmpty: 'No picks selected.',
+    schedinaMultiplier: 'Total odds',
+    schedinaStakeLabel: 'Stake (€)',
+    schedinaPotentialWin: 'Potential payout',
+    schedinaClear: 'Clear slip',
+    schedinaAddBtn: '+ Add',
+    schedinaAddedBtn: '✓ Added',
+    schedinaBonusNote: 'Some bookmakers apply bonuses or boosts on accumulators (e.g. multiple bet bonus, first-pick insurance). GreenPick does not include any such bonus: the multiplier shown is simply the product of the selected odds, with no boost applied.'
   }
 };
 

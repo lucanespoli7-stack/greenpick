@@ -60,10 +60,22 @@ function renderMatches(matches, giornataNumero, isActive) {
     link.appendChild(matchInfo);
 
     if (match.pronostico) {
+      const actions = document.createElement('div');
+      actions.className = 'ticket-actions';
+
       const badge = document.createElement('span');
       badge.className = 'greenpicked-btn';
       badge.textContent = 'Greenpicked →';
-      link.appendChild(badge);
+      actions.appendChild(badge);
+
+      const addBtn = document.createElement('button');
+      addBtn.type = 'button';
+      addBtn.className = 'schedina-add-btn';
+      addBtn.dataset.schedinaAdd = match.id;
+      addBtn.textContent = t('schedinaAddBtn');
+      actions.appendChild(addBtn);
+
+      link.appendChild(actions);
     } else if (!isActive) {
       const proTag = document.createElement('span');
       proTag.className = 'pro-tag';
