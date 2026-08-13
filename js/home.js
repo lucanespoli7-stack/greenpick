@@ -1,52 +1,34 @@
-// Popola la home page con la lista delle partite di giornata, usando i dati in data.js.
+// Popola la home page con l'elenco dei campionati disponibili.
 
-function renderScoreboard() {
-  const withPick = MATCHES.filter(m => m.pronostico).length;
-  document.getElementById('sb-greenpicked').textContent = `${withPick}/${MATCHES.length}`;
-  document.getElementById('sb-scorsa').textContent = GIORNATA.scorsaGiornataEsito;
-}
+const LEAGUES = [
+  { id: 'serie-a', nome: 'Serie A', bandiera: '🇮🇹' },
+  { id: 'bundesliga', nome: 'Bundesliga', bandiera: '🇩🇪' },
+  { id: 'ligue-1', nome: 'Ligue 1', bandiera: '🇫🇷' },
+  { id: 'laliga', nome: 'LaLiga', bandiera: '🇪🇸' },
+  { id: 'premier-league', nome: 'Premier League', bandiera: '🏴󠁧󠁢󠁥󠁮󠁧󠁿' }
+];
 
-function renderSectionHead() {
-  document.getElementById('section-title').textContent = `Tutte le partite di giornata ${GIORNATA.numero}`;
-  document.getElementById('section-tag').textContent = GIORNATA.campionato;
-  document.getElementById('eyebrow').textContent = `Giornata ${GIORNATA.numero} · ${GIORNATA.campionato}`;
-}
-
-function renderMatches() {
-  const list = document.getElementById('match-list');
+function renderLeagues() {
+  const list = document.getElementById('leagues-list');
   list.innerHTML = '';
 
-  MATCHES.forEach(match => {
+  LEAGUES.forEach(league => {
     const link = document.createElement('a');
-    link.className = match.pronostico ? 'ticket ticket--picked' : 'ticket';
-    link.href = `partita.html?id=${encodeURIComponent(match.id)}`;
+    link.className = 'league-item';
+    link.href = `campionato.html?id=${encodeURIComponent(league.id)}`;
 
-    const matchInfo = document.createElement('div');
-    matchInfo.className = 'match';
+    const flag = document.createElement('span');
+    flag.className = 'league-flag';
+    flag.textContent = league.bandiera;
 
-    const teams = document.createElement('div');
-    teams.className = 'teams';
-    teams.textContent = `${match.home.nome} — ${match.away.nome}`;
+    const name = document.createElement('span');
+    name.className = 'league-name';
+    name.textContent = league.nome;
 
-    const meta = document.createElement('div');
-    meta.className = 'meta';
-    meta.textContent = `${match.data} · ${match.stadio}`;
-
-    matchInfo.appendChild(teams);
-    matchInfo.appendChild(meta);
-    link.appendChild(matchInfo);
-
-    if (match.pronostico) {
-      const badge = document.createElement('span');
-      badge.className = 'greenpicked-btn';
-      badge.textContent = 'Greenpicked →';
-      link.appendChild(badge);
-    }
-
+    link.appendChild(flag);
+    link.appendChild(name);
     list.appendChild(link);
   });
 }
 
-renderSectionHead();
-renderScoreboard();
-renderMatches();
+renderLeagues();
