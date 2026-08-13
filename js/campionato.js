@@ -23,6 +23,8 @@ function buildClassifica() {
 }
 
 function renderClassifica() {
+  document.getElementById('classifica-tag').textContent = GIORNATA.campionato;
+
   const body = document.getElementById('classifica-body');
   body.innerHTML = '';
 
@@ -44,8 +46,6 @@ function renderClassifica() {
 
 function renderMatches() {
   document.getElementById('matches-title').textContent = `Tutte le partite di giornata ${GIORNATA.numero}`;
-  document.getElementById('matches-tag').textContent = GIORNATA.campionato;
-  document.getElementById('classifica-tag').textContent = GIORNATA.campionato;
 
   const list = document.getElementById('match-list');
   list.innerHTML = '';
