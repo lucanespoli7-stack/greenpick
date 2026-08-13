@@ -34,7 +34,7 @@ function renderClassifica(classifica, campionatoNome) {
 }
 
 function renderMatches(matches, giornataNumero, isActive) {
-  document.getElementById('matches-title').textContent = `Tutte le partite di giornata ${giornataNumero}`;
+  document.getElementById('matches-title').textContent = t('matchesTitle')(giornataNumero);
 
   const list = document.getElementById('match-list');
   list.innerHTML = '';
@@ -67,7 +67,7 @@ function renderMatches(matches, giornataNumero, isActive) {
     } else if (!isActive) {
       const proTag = document.createElement('span');
       proTag.className = 'pro-tag';
-      proTag.textContent = 'Coming soon PRO';
+      proTag.textContent = t('proTag');
       link.appendChild(proTag);
     }
 
@@ -76,7 +76,7 @@ function renderMatches(matches, giornataNumero, isActive) {
 }
 
 function renderNotFound() {
-  document.getElementById('league-title').textContent = 'Campionato non trovato';
+  document.getElementById('league-title').textContent = t('leagueNotFound');
   document.getElementById('league-sub').textContent = '';
   document.getElementById('classifica-section').style.display = 'none';
   document.getElementById('matches-section').style.display = 'none';
@@ -95,10 +95,11 @@ function renderPage() {
 
   document.title = `${league.nome} · GreenPick`;
   document.getElementById('league-title').textContent = league.nome;
-  document.getElementById('league-sub').textContent = `Giornata ${data.giornata.numero} · ${data.giornata.campionato}`;
+  document.getElementById('league-sub').textContent = t('matchdayLabel')(data.giornata.numero, data.giornata.campionato);
 
   renderClassifica(data.classifica, data.giornata.campionato);
   renderMatches(data.matches, data.giornata.numero, league.attivo);
 }
 
 renderPage();
+window.onLangChange = renderPage;

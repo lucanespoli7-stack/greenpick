@@ -12,10 +12,11 @@
 
   <div class="header">
     <div class="logo"><span class="dot"></span>GreenPick</div>
+    <div class="lang-toggle" id="lang-toggle"></div>
   </div>
 
   <div class="hero hero-small">
-    <a class="back-link" href="index.html">← Tutti i campionati</a>
+    <a class="back-link" href="index.html" data-i18n="backToLeagues">← Tutti i campionati</a>
     <h1 id="league-title">Caricamento…</h1>
     <p id="league-sub"></p>
   </div>
@@ -23,14 +24,14 @@
   <div class="section" id="matches-section">
     <div class="section-head">
       <h2 id="matches-title">Tutte le partite</h2>
-      <a href="#classifica-section" class="scroll-link">Classifica →</a>
+      <a href="#classifica-section" class="scroll-link" data-i18n="standingsLink">Classifica →</a>
     </div>
     <div id="match-list"></div>
   </div>
 
   <div class="section" id="classifica-section">
     <div class="section-head">
-      <h2>Classifica</h2>
+      <h2 data-i18n="standingsHeading">Classifica</h2>
       <span id="classifica-tag">Serie A</span>
     </div>
     <div class="classifica-wrap">
@@ -38,15 +39,15 @@
         <thead>
           <tr>
             <th>#</th>
-            <th class="team">Squadra</th>
-            <th>PG</th>
-            <th>V</th>
-            <th>N</th>
-            <th>P</th>
-            <th>GF</th>
-            <th>GS</th>
-            <th>DR</th>
-            <th>Pt</th>
+            <th class="team" data-i18n="colTeam">Squadra</th>
+            <th data-i18n="colPG">PG</th>
+            <th data-i18n="colV">V</th>
+            <th data-i18n="colN">N</th>
+            <th data-i18n="colP">P</th>
+            <th data-i18n="colGF">GF</th>
+            <th data-i18n="colGS">GS</th>
+            <th data-i18n="colDR">DR</th>
+            <th data-i18n="colPt">Pt</th>
           </tr>
         </thead>
         <tbody id="classifica-body"></tbody>
@@ -56,14 +57,15 @@
 
   <div class="section" id="coming-soon-section" style="display:none;">
     <div class="coming-soon">
-      <div class="coming-soon-eyebrow">GreenPick PRO</div>
-      <h2 id="coming-soon-title">Presto disponibile</h2>
+      <div class="coming-soon-eyebrow" data-i18n="comingSoonEyebrow">GreenPick PRO</div>
+      <h2 id="coming-soon-title" data-i18n="comingSoonTitle">Presto disponibile</h2>
       <p id="coming-soon-text"></p>
     </div>
   </div>
 
-  <div class="footer">GreenPick © 2026</div>
+  <div class="footer" data-i18n="footer">GreenPick © 2026</div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/leagues.js"></script>
   <script src="js/data.js"></script>
   <script src="js/campionato.js"></script>

@@ -48,6 +48,32 @@ a{ text-decoration:none; color:inherit; }
   font-weight:500;
   color:#C7D6CF;
 }
+.lang-toggle{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px;
+}
+.lang-btn{
+  background:none;
+  border:none;
+  font-family:inherit;
+  font-size:inherit;
+  font-weight:600;
+  color:#9FB3AA;
+  cursor:pointer;
+  padding:4px 2px;
+}
+.lang-btn:hover{
+  color:var(--chalk);
+}
+.lang-btn.active{
+  color:var(--go);
+}
+.lang-sep{
+  color:#4B5D56;
+}
 /* Hero */
 .hero{
   background:var(--pitch-dark);
