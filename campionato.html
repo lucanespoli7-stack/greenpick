@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campionato · GreenPick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo"><span class="dot"></span>GreenPick</div>
+  </div>
+
+  <div class="hero hero-small">
+    <a class="back-link" href="index.html">← Tutti i campionati</a>
+    <h1 id="league-title">Caricamento…</h1>
+    <p id="league-sub"></p>
+  </div>
+
+  <div class="section" id="classifica-section">
+    <div class="section-head">
+      <h2>Classifica</h2>
+      <span id="classifica-tag">Serie A</span>
+    </div>
+    <div class="classifica-wrap">
+      <table class="classifica-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th class="team">Squadra</th>
+            <th>G</th>
+            <th>V</th>
+            <th>N</th>
+            <th>P</th>
+            <th>GF</th>
+            <th>GS</th>
+          </tr>
+        </thead>
+        <tbody id="classifica-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section" id="matches-section">
+    <div class="section-head">
+      <h2 id="matches-title">Tutte le partite</h2>
+      <span id="matches-tag">Serie A</span>
+    </div>
+    <div id="match-list"></div>
+  </div>
+
+  <div class="section" id="coming-soon-section" style="display:none;">
+    <div class="coming-soon">
+      <div class="coming-soon-eyebrow">GreenPick PRO</div>
+      <h2 id="coming-soon-title">Presto disponibile</h2>
+      <p id="coming-soon-text"></p>
+    </div>
+  </div>
+
+  <div class="footer">GreenPick © 2026</div>
+
+  <script src="js/leagues.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/campionato.js"></script>
+</body>
+</html>

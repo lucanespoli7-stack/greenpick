@@ -265,6 +265,79 @@ a.ticket:hover .greenpicked-btn{
   color:var(--ink-soft);
 }
 
+/* Classifica (campionato page) */
+.classifica-wrap{
+  background:#FFFFFF;
+  border:1px solid var(--line);
+  border-radius:10px;
+  overflow-x:auto;
+}
+.classifica-table{
+  width:100%;
+  border-collapse:collapse;
+  white-space:nowrap;
+}
+.classifica-table th{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  text-align:center;
+  padding:12px 10px;
+  border-bottom:1px solid var(--line);
+  background:#FAFBF9;
+}
+.classifica-table th.team,
+.classifica-table td.team{
+  text-align:left;
+}
+.classifica-table td{
+  text-align:center;
+  font-size:13px;
+  padding:10px;
+  border-bottom:1px solid var(--line);
+}
+.classifica-table tr:last-child td{
+  border-bottom:none;
+}
+.classifica-table td:first-child{
+  font-family:'IBM Plex Mono', monospace;
+  color:var(--ink-soft);
+}
+.classifica-table td.team{
+  font-weight:600;
+}
+
+/* Coming soon (inactive league page) */
+.coming-soon{
+  background:#FFFFFF;
+  border:1px dashed var(--line);
+  border-radius:10px;
+  padding:48px 28px;
+  text-align:center;
+}
+.coming-soon-eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--go-deep);
+  margin-bottom:10px;
+}
+.coming-soon h2{
+  font-family:'Oswald', sans-serif;
+  font-weight:600;
+  font-size:20px;
+  margin-bottom:10px;
+}
+.coming-soon p{
+  font-size:14px;
+  color:var(--ink-soft);
+  max-width:440px;
+  margin:0 auto;
+}
+
 /* Match detail page */
 .pick-card{
   background:var(--pitch-dark);
