@@ -1,19 +1,21 @@
-// Popola la pagina di un campionato in base al parametro ?id= nell'URL.
-// Serie A mostra classifica + partite di giornata; gli altri campionati
-// mostrano un messaggio "presto disponibile".
+// Popola la pagina di un campionato in base al parametro ?id= nell'URL,
+// leggendo classifica e partite da LEAGUE_DATA[id] (js/data.js).
+// Ogni campionato mostra sempre classifica e calendario; se il campionato
+// non è ancora attivo (js/leagues.js), le partite non hanno pronostico e
+// al posto del bottone "Greenpicked" compare un'etichetta "Coming soon PRO".
 
 function getLeagueIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
   return params.get('id');
 }
 
-function renderClassifica() {
-  document.getElementById('classifica-tag').textContent = GIORNATA.campionato;
+function renderClassifica(classifica, campionatoNome) {
+  document.getElementById('classifica-tag').textContent = campionatoNome;
 
   const body = document.getElementById('classifica-body');
   body.innerHTML = '';
 
-  CLASSIFICA.forEach((team, i) => {
+  classifica.forEach((team, i) => {
     const row = document.createElement('tr');
     row.innerHTML = `
       <td>${i + 1}</td>
@@ -31,13 +33,13 @@ function renderClassifica() {
   });
 }
 
-function renderMatches() {
-  document.getElementById('matches-title').textContent = `Tutte le partite di giornata ${GIORNATA.numero}`;
+function renderMatches(matches, giornataNumero, isActive) {
+  document.getElementById('matches-title').textContent = `Tutte le partite di giornata ${giornataNumero}`;
 
   const list = document.getElementById('match-list');
   list.innerHTML = '';
 
-  MATCHES.forEach(match => {
+  matches.forEach(match => {
     const link = document.createElement('a');
     link.className = match.pronostico ? 'ticket ticket--picked' : 'ticket';
     link.href = `partita.html?id=${encodeURIComponent(match.id)}`;
@@ -62,44 +64,41 @@ function renderMatches() {
       badge.className = 'greenpicked-btn';
       badge.textContent = 'Greenpicked →';
       link.appendChild(badge);
+    } else if (!isActive) {
+      const proTag = document.createElement('span');
+      proTag.className = 'pro-tag';
+      proTag.textContent = 'Coming soon PRO';
+      link.appendChild(proTag);
     }
 
     list.appendChild(link);
   });
 }
 
-function renderComingSoon(league) {
+function renderNotFound() {
+  document.getElementById('league-title').textContent = 'Campionato non trovato';
+  document.getElementById('league-sub').textContent = '';
   document.getElementById('classifica-section').style.display = 'none';
   document.getElementById('matches-section').style.display = 'none';
-  document.getElementById('coming-soon-section').style.display = '';
-
-  document.getElementById('coming-soon-text').textContent =
-    `Le analisi su ${league.nome} arriveranno a breve con l'abbonamento GreenPick PRO. Nel frattempo, la Serie A resta gratuita e aggiornata ogni giornata.`;
+  document.getElementById('coming-soon-section').style.display = 'none';
 }
 
 function renderPage() {
   const id = getLeagueIdFromUrl();
   const league = LEAGUES.find(l => l.id === id);
+  const data = LEAGUE_DATA[id];
 
-  if (!league) {
-    document.getElementById('league-title').textContent = 'Campionato non trovato';
-    document.getElementById('classifica-section').style.display = 'none';
-    document.getElementById('matches-section').style.display = 'none';
-    document.getElementById('coming-soon-section').style.display = 'none';
+  if (!league || !data) {
+    renderNotFound();
     return;
   }
 
   document.title = `${league.nome} · GreenPick`;
   document.getElementById('league-title').textContent = league.nome;
+  document.getElementById('league-sub').textContent = `Giornata ${data.giornata.numero} · ${data.giornata.campionato}`;
 
-  if (league.attivo) {
-    document.getElementById('league-sub').textContent = `Giornata ${GIORNATA.numero} · ${GIORNATA.campionato}`;
-    renderClassifica();
-    renderMatches();
-  } else {
-    document.getElementById('league-sub').textContent = '';
-    renderComingSoon(league);
-  }
+  renderClassifica(data.classifica, data.giornata.campionato);
+  renderMatches(data.matches, data.giornata.numero, league.attivo);
 }
 
 renderPage();
