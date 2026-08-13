@@ -264,6 +264,20 @@ a.ticket:hover{
   border-radius:6px;
   white-space:nowrap;
 }
+.pro-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:#F5F1E6;
+  color:var(--ink-soft);
+  font-family:'IBM Plex Mono', monospace;
+  font-weight:600;
+  font-size:12px;
+  padding:9px 14px;
+  border-radius:6px;
+  border:1px solid var(--line);
+  white-space:nowrap;
+}
 a.ticket:hover .greenpicked-btn{
   background:var(--go-deep);
   color:var(--chalk);
