@@ -1,26 +1,46 @@
 // Dati di esempio per GreenPick — Giornata 1, Serie A 2026/27.
-// Struttura pensata per essere sostituita in futuro con dati reali
-// senza dover cambiare la logica di home.js / match.js.
+// Formato pensato per essere lo stesso per tutti i campionati:
+// CLASSIFICA (tabella squadre) e MATCHES (calendario/pronostici) sono
+// due elenchi indipendenti, così un giorno potranno arrivare da fonti
+// dati reali separate senza cambiare la logica di rendering.
 
 const GIORNATA = {
   numero: 1,
-  campionato: 'Serie A',
-  scorsaGiornataEsito: '—'
+  campionato: 'Serie A'
 };
 
+// Colonne: #, Squadra, PG, V, N, P, GF, GS, DR, Pt
+const CLASSIFICA = [
+  { nome: 'Lecce', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Bologna', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Frosinone', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Genoa', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Napoli', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Udinese', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Monza', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Sassuolo', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Venezia', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Roma', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Inter', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Juventus', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Fiorentina', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Milan', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Atalanta', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Lazio', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Cagliari', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Torino', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Parma', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
+  { nome: 'Como', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 }
+];
+
+// Colonne: Data (con orario), Stadio, Partita
 const MATCHES = [
   {
     id: 'inter-monza',
-    home: {
-      nome: 'Inter',
-      stats: { posizione: 2, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    away: {
-      nome: 'Monza',
-      stats: { posizione: 13, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    data: 'Sab 22/08',
-    stadio: 'San Siro',
+    dataOra: '22/08/2026 18:30',
+    stadio: 'Giuseppe Meazza',
+    home: 'Inter',
+    away: 'Monza',
     pronostico: {
       esito: '1 (Handicap -1)',
       quota: 1.66,
@@ -33,16 +53,10 @@ const MATCHES = [
   },
   {
     id: 'udinese-como',
-    home: {
-      nome: 'Udinese',
-      stats: { posizione: 12, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    away: {
-      nome: 'Como',
-      stats: { posizione: 18, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    data: 'Sab 22/08',
+    dataOra: '22/08/2026 18:30',
     stadio: 'Bluenergy Stadium',
+    home: 'Udinese',
+    away: 'Como',
     pronostico: {
       esito: 'Goal',
       quota: 2.05,
@@ -54,39 +68,11 @@ const MATCHES = [
     }
   },
   {
-    id: 'parma-cagliari',
-    home: {
-      nome: 'Parma',
-      stats: { posizione: 15, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    away: {
-      nome: 'Cagliari',
-      stats: { posizione: 14, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    data: 'Sab 22/08',
-    stadio: 'Ennio Tardini',
-    pronostico: {
-      esito: 'X',
-      quota: 3.10,
-      analisi: [
-        'Partita all’insegna del non perdere punti in avvio di stagione',
-        'Nessun trasferimento rilevante in entrata per il Cagliari',
-        'Parma ha ceduto Pellegrino alla Fiorentina'
-      ]
-    }
-  },
-  {
     id: 'genoa-napoli',
-    home: {
-      nome: 'Genoa',
-      stats: { posizione: 11, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    away: {
-      nome: 'Napoli',
-      stats: { posizione: 1, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    data: 'Sab 22/08',
+    dataOra: '22/08/2026 20:45',
     stadio: 'Luigi Ferraris',
+    home: 'Genoa',
+    away: 'Napoli',
     pronostico: {
       esito: 'X (Handicap Napoli -1)',
       quota: 3.60,
@@ -98,59 +84,43 @@ const MATCHES = [
     }
   },
   {
+    id: 'parma-cagliari',
+    dataOra: '22/08/2026 20:45',
+    stadio: 'Ennio Tardini',
+    home: 'Parma',
+    away: 'Cagliari',
+    pronostico: {
+      esito: 'X',
+      quota: 3.10,
+      analisi: [
+        'Partita all’insegna del non perdere punti in avvio di stagione',
+        'Nessun trasferimento rilevante in entrata per il Cagliari',
+        'Parma ha ceduto Pellegrino alla Fiorentina'
+      ]
+    }
+  },
+  {
     id: 'frosinone-juventus',
-    home: {
-      nome: 'Frosinone',
-      stats: { posizione: 20, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    away: {
-      nome: 'Juventus',
-      stats: { posizione: 4, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    data: 'Dom 23/08',
+    dataOra: '23/08/2026 18:30',
     stadio: 'Benito Stirpe',
+    home: 'Frosinone',
+    away: 'Juventus',
     pronostico: null
   },
   {
     id: 'venezia-lecce',
-    home: {
-      nome: 'Venezia',
-      stats: { posizione: 17, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    away: {
-      nome: 'Lecce',
-      stats: { posizione: 16, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    data: 'Dom 23/08',
+    dataOra: '23/08/2026 18:30',
     stadio: 'Pier Luigi Penzo',
-    pronostico: null
-  },
-  {
-    id: 'torino-milan',
-    home: {
-      nome: 'Torino',
-      stats: { posizione: 10, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    away: {
-      nome: 'Milan',
-      stats: { posizione: 7, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    data: 'Dom 23/08',
-    stadio: 'Olimpico Grande Torino',
+    home: 'Venezia',
+    away: 'Lecce',
     pronostico: null
   },
   {
     id: 'atalanta-sassuolo',
-    home: {
-      nome: 'Atalanta',
-      stats: { posizione: 3, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    away: {
-      nome: 'Sassuolo',
-      stats: { posizione: 19, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    data: 'Dom 23/08',
+    dataOra: '23/08/2026 20:45',
     stadio: 'Gewiss Stadium',
+    home: 'Atalanta',
+    away: 'Sassuolo',
     pronostico: {
       esito: '1',
       quota: 1.50,
@@ -162,17 +132,19 @@ const MATCHES = [
     }
   },
   {
+    id: 'torino-milan',
+    dataOra: '23/08/2026 20:45',
+    stadio: 'Olimpico Grande Torino',
+    home: 'Torino',
+    away: 'Milan',
+    pronostico: null
+  },
+  {
     id: 'bologna-lazio',
-    home: {
-      nome: 'Bologna',
-      stats: { posizione: 6, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    away: {
-      nome: 'Lazio',
-      stats: { posizione: 9, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    data: 'Lun 24/08',
+    dataOra: '24/08/2026 18:30',
     stadio: "Renato Dall'Ara",
+    home: 'Bologna',
+    away: 'Lazio',
     pronostico: {
       esito: 'X',
       quota: 3.20,
@@ -185,16 +157,10 @@ const MATCHES = [
   },
   {
     id: 'roma-fiorentina',
-    home: {
-      nome: 'Roma',
-      stats: { posizione: 5, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    away: {
-      nome: 'Fiorentina',
-      stats: { posizione: 8, giocate: 0, vittorie: 0, pareggi: 0, sconfitte: 0, golFatti: 0, golSubiti: 0 }
-    },
-    data: 'Lun 24/08',
+    dataOra: '24/08/2026 20:45',
     stadio: 'Stadio Olimpico',
+    home: 'Roma',
+    away: 'Fiorentina',
     pronostico: {
       esito: 'Over 2,5',
       quota: 1.95,
@@ -205,3 +171,12 @@ const MATCHES = [
     }
   }
 ];
+
+// "DD/MM/YYYY HH:MM" -> "Sab 22/08 · 18:30"
+function formatMatchDate(dataOra) {
+  const [datePart, timePart] = dataOra.split(' ');
+  const [day, month, year] = datePart.split('/').map(Number);
+  const giorni = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];
+  const weekday = giorni[new Date(year, month - 1, day).getDay()];
+  return `${weekday} ${datePart.slice(0, 5)} · ${timePart}`;
+}
