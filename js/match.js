@@ -37,7 +37,7 @@ function renderPick(match) {
         <div class="pick-label">Greenpicked</div>
         <div class="pick-outcome-row">
           <div class="pick-outcome">${match.pronostico.esito}</div>
-          <div class="pick-quota">${t('quotaLabel')} ${formatQuota(match.pronostico.quota)}</div>
+          <button type="button" class="pick-quota" data-schedina-add="${match.id}">${t('quotaLabel')} ${formatQuota(match.pronostico.quota)}</button>
         </div>
         <ul class="pick-list">${punti}</ul>
       </div>

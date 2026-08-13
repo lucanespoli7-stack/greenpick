@@ -308,6 +308,32 @@ a.ticket:hover .greenpicked-btn{
   background:var(--go-deep);
   color:var(--chalk);
 }
+.ticket-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.schedina-add-btn{
+  font-family:'IBM Plex Mono', monospace;
+  font-weight:600;
+  font-size:12px;
+  color:var(--go-deep);
+  background:#FFFFFF;
+  border:1px solid var(--go);
+  border-radius:6px;
+  padding:8px 12px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.schedina-add-btn:hover{
+  background:rgba(111,207,122,0.12);
+}
+.schedina-add-btn--added{
+  background:var(--go);
+  color:#0A2C21;
+  border-color:var(--go);
+}
 
 .footer{
   text-align:center;
@@ -427,6 +453,15 @@ a.ticket:hover .greenpicked-btn{
   padding:5px 12px;
   border-radius:6px;
   white-space:nowrap;
+  border:none;
+  cursor:pointer;
+}
+.pick-quota--added{
+  background:var(--go);
+  color:#0A2C21;
+}
+.pick-quota--added::before{
+  content:"✓ ";
 }
 .pick-list{
   list-style:none;
@@ -486,6 +521,184 @@ a.ticket:hover .greenpicked-btn{
 .stat-value{
   font-family:'IBM Plex Mono', monospace;
   font-weight:600;
+}
+
+/* Schedina panel (bet slip sidebar) */
+.schedina-tab{
+  position:fixed;
+  bottom:32px;
+  right:0;
+  z-index:1000;
+  display:none;
+  background:var(--go);
+  color:#0A2C21;
+  font-family:'IBM Plex Mono', monospace;
+  font-weight:600;
+  font-size:13px;
+  border:none;
+  border-radius:8px 0 0 8px;
+  padding:14px 18px;
+  cursor:pointer;
+  box-shadow:-4px 0 12px rgba(0,0,0,0.18);
+}
+.schedina-panel.has-items .schedina-tab{
+  display:block;
+}
+.schedina-panel.open .schedina-tab{
+  display:none;
+}
+.schedina-tab:hover{
+  background:var(--go-deep);
+  color:var(--chalk);
+}
+.schedina-panel-inner{
+  position:fixed;
+  top:0;
+  right:0;
+  width:340px;
+  max-width:100vw;
+  height:100vh;
+  z-index:1001;
+  background:var(--pitch-dark);
+  color:var(--chalk);
+  box-shadow:-8px 0 24px rgba(0,0,0,0.3);
+  transform:translateX(100%);
+  transition:transform .25s ease;
+  overflow-y:auto;
+  padding:28px 22px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.schedina-panel.open .schedina-panel-inner{
+  transform:translateX(0);
+}
+.schedina-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.schedina-header h3{
+  font-family:'Oswald', sans-serif;
+  font-weight:600;
+  font-size:18px;
+}
+.schedina-close{
+  background:none;
+  border:none;
+  color:var(--chalk);
+  font-size:22px;
+  line-height:1;
+  cursor:pointer;
+  padding:4px;
+}
+.schedina-close:hover{
+  color:var(--go);
+}
+.schedina-empty{
+  font-size:13px;
+  color:#9FB3AA;
+}
+.schedina-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-height:40vh;
+  overflow-y:auto;
+}
+.schedina-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  background:var(--pitch-darker);
+  border-radius:8px;
+  padding:10px 12px;
+}
+.schedina-row-teams{
+  font-size:13px;
+  font-weight:600;
+}
+.schedina-row-pick{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px;
+  color:#9FB3AA;
+  margin-top:2px;
+}
+.schedina-remove{
+  background:none;
+  border:none;
+  color:#9FB3AA;
+  font-size:18px;
+  line-height:1;
+  cursor:pointer;
+  padding:2px 6px;
+}
+.schedina-remove:hover{
+  color:var(--chalk);
+}
+.schedina-summary-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:14px;
+  border-top:1px solid rgba(255,255,255,0.12);
+  padding-top:14px;
+}
+.schedina-win-row{
+  border-top:none;
+  padding-top:0;
+}
+.schedina-multiplier-value,
+.schedina-win-value{
+  font-family:'IBM Plex Mono', monospace;
+  font-weight:600;
+  color:var(--go);
+}
+.schedina-stake-label{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-size:13px;
+  color:#C7D6CF;
+}
+.schedina-stake-input{
+  background:var(--pitch-darker);
+  border:1px solid rgba(255,255,255,0.16);
+  border-radius:6px;
+  padding:9px 12px;
+  color:var(--chalk);
+  font-family:'IBM Plex Mono', monospace;
+  font-size:14px;
+}
+.schedina-stake-input:focus{
+  outline:none;
+  border-color:var(--go);
+}
+.schedina-bonus-note{
+  font-size:11px;
+  color:#8AA098;
+  line-height:1.5;
+}
+.schedina-clear{
+  background:none;
+  border:1px solid rgba(255,255,255,0.2);
+  color:#C7D6CF;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px;
+  font-weight:600;
+  border-radius:6px;
+  padding:10px;
+  cursor:pointer;
+}
+.schedina-clear:hover{
+  border-color:var(--go);
+  color:var(--go);
+}
+
+@media (max-width: 600px){
+  .schedina-panel-inner{ width:100vw; }
 }
 
 @media (max-width: 520px){
