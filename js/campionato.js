@@ -7,38 +7,25 @@ function getLeagueIdFromUrl() {
   return params.get('id');
 }
 
-function buildClassifica() {
-  const teams = new Map();
-
-  MATCHES.forEach(match => {
-    [match.home, match.away].forEach(team => {
-      if (!teams.has(team.nome)) {
-        teams.set(team.nome, team.stats);
-      }
-    });
-  });
-
-  return Array.from(teams, ([nome, stats]) => ({ nome, ...stats }))
-    .sort((a, b) => a.posizione - b.posizione);
-}
-
 function renderClassifica() {
   document.getElementById('classifica-tag').textContent = GIORNATA.campionato;
 
   const body = document.getElementById('classifica-body');
   body.innerHTML = '';
 
-  buildClassifica().forEach(team => {
+  CLASSIFICA.forEach((team, i) => {
     const row = document.createElement('tr');
     row.innerHTML = `
-      <td>${team.posizione}</td>
+      <td>${i + 1}</td>
       <td class="team">${team.nome}</td>
-      <td>${team.giocate}</td>
-      <td>${team.vittorie}</td>
-      <td>${team.pareggi}</td>
-      <td>${team.sconfitte}</td>
-      <td>${team.golFatti}</td>
-      <td>${team.golSubiti}</td>
+      <td>${team.pg}</td>
+      <td>${team.v}</td>
+      <td>${team.n}</td>
+      <td>${team.p}</td>
+      <td>${team.gf}</td>
+      <td>${team.gs}</td>
+      <td>${team.dr}</td>
+      <td>${team.pt}</td>
     `;
     body.appendChild(row);
   });
@@ -60,11 +47,11 @@ function renderMatches() {
 
     const teams = document.createElement('div');
     teams.className = 'teams';
-    teams.textContent = `${match.home.nome} — ${match.away.nome}`;
+    teams.textContent = `${match.home} — ${match.away}`;
 
     const meta = document.createElement('div');
     meta.className = 'meta';
-    meta.textContent = `${match.data} · ${match.stadio}`;
+    meta.textContent = `${formatMatchDate(match.dataOra)} · ${match.stadio}`;
 
     matchInfo.appendChild(teams);
     matchInfo.appendChild(meta);

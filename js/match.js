@@ -5,18 +5,19 @@ function getMatchIdFromUrl() {
   return params.get('id');
 }
 
-function renderTeamCard(containerId, team) {
+function renderTeamCard(containerId, teamName) {
   const card = document.getElementById(containerId);
-  const s = team.stats;
+  const posizione = CLASSIFICA.findIndex(t => t.nome === teamName) + 1;
+  const s = CLASSIFICA.find(t => t.nome === teamName);
 
-  card.querySelector('.team-name').textContent = team.nome;
-  card.querySelector('[data-stat="posizione"]').textContent = `${s.posizione}ª`;
-  card.querySelector('[data-stat="giocate"]').textContent = s.giocate;
-  card.querySelector('[data-stat="vittorie"]').textContent = s.vittorie;
-  card.querySelector('[data-stat="pareggi"]').textContent = s.pareggi;
-  card.querySelector('[data-stat="sconfitte"]').textContent = s.sconfitte;
-  card.querySelector('[data-stat="gol-fatti"]').textContent = s.golFatti;
-  card.querySelector('[data-stat="gol-subiti"]').textContent = s.golSubiti;
+  card.querySelector('.team-name').textContent = teamName;
+  card.querySelector('[data-stat="posizione"]').textContent = `${posizione}ª`;
+  card.querySelector('[data-stat="giocate"]').textContent = s.pg;
+  card.querySelector('[data-stat="vittorie"]').textContent = s.v;
+  card.querySelector('[data-stat="pareggi"]').textContent = s.n;
+  card.querySelector('[data-stat="sconfitte"]').textContent = s.p;
+  card.querySelector('[data-stat="gol-fatti"]').textContent = s.gf;
+  card.querySelector('[data-stat="gol-subiti"]').textContent = s.gs;
 }
 
 function formatQuota(quota) {
@@ -59,9 +60,9 @@ function renderMatch() {
     return;
   }
 
-  document.title = `${match.home.nome} — ${match.away.nome} · GreenPick`;
-  document.getElementById('match-title').textContent = `${match.home.nome} — ${match.away.nome}`;
-  document.getElementById('match-meta').textContent = `${match.data} · ${match.stadio}`;
+  document.title = `${match.home} — ${match.away} · GreenPick`;
+  document.getElementById('match-title').textContent = `${match.home} — ${match.away}`;
+  document.getElementById('match-meta').textContent = `${formatMatchDate(match.dataOra)} · ${match.stadio}`;
 
   renderPick(match);
   renderTeamCard('home-team-card', match.home);
