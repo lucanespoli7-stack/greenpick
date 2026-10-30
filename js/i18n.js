@@ -126,15 +126,49 @@ function applyStaticTranslations() {
   });
 }
 
+// Bandiere tonde del selettore lingua: SVG inline con clipPath circolare,
+// stessa tecnica delle bandiere dei campionati in leagues.js.
+const LANG_FLAGS = {
+  it: `
+    <svg class="lang-flag" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <clipPath id="clip-lang-it"><circle cx="12" cy="12" r="12"/></clipPath>
+      <g clip-path="url(#clip-lang-it)">
+        <rect x="0" y="0" width="8" height="24" fill="#009246"/>
+        <rect x="8" y="0" width="8" height="24" fill="#FFFFFF"/>
+        <rect x="16" y="0" width="8" height="24" fill="#CE2B37"/>
+      </g>
+      <circle cx="12" cy="12" r="11.25" fill="none" stroke="#D9E3DC" stroke-width="1.5"/>
+    </svg>
+  `,
+  en: `
+    <svg class="lang-flag" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <clipPath id="clip-lang-en"><circle cx="12" cy="12" r="12"/></clipPath>
+      <g clip-path="url(#clip-lang-en)">
+        <rect x="0" y="0" width="24" height="24" fill="#012169"/>
+        <path d="M0 0L24 24M24 0L0 24" stroke="#FFFFFF" stroke-width="4.8"/>
+        <path d="M0 0L24 24M24 0L0 24" stroke="#C8102E" stroke-width="1.6"/>
+        <path d="M12 0V24M0 12H24" stroke="#FFFFFF" stroke-width="8"/>
+        <path d="M12 0V24M0 12H24" stroke="#C8102E" stroke-width="4.8"/>
+      </g>
+      <circle cx="12" cy="12" r="11.25" fill="none" stroke="#D9E3DC" stroke-width="1.5"/>
+    </svg>
+  `
+};
+
 function renderLangToggle() {
   const el = document.getElementById('lang-toggle');
   if (!el) return;
   const lang = getLang();
 
   el.innerHTML = `
-    <button type="button" class="lang-btn${lang === 'it' ? ' active' : ''}" data-lang="it">IT</button>
-    <span class="lang-sep">/</span>
-    <button type="button" class="lang-btn${lang === 'en' ? ' active' : ''}" data-lang="en">EN</button>
+    <div class="lang-pill" role="group" aria-label="Lingua / Language">
+      <button type="button" class="lang-btn${lang === 'it' ? ' active' : ''}" data-lang="it" aria-label="Italiano" aria-pressed="${lang === 'it'}">
+        ${LANG_FLAGS.it}<span class="lang-code">IT</span>
+      </button>
+      <button type="button" class="lang-btn${lang === 'en' ? ' active' : ''}" data-lang="en" aria-label="English" aria-pressed="${lang === 'en'}">
+        ${LANG_FLAGS.en}<span class="lang-code">EN</span>
+      </button>
+    </div>
   `;
 
   el.querySelectorAll('.lang-btn').forEach(btn => {
