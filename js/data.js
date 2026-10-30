@@ -171,23 +171,42 @@ const MATCHES_LIGUE1 = [
 
 // --- LaLiga ----------------------------------------------------------------
 
-const GIORNATA_LALIGA = { numero: 1, campionato: 'LaLiga' };
+const GIORNATA_LALIGA = { numero: 11, campionato: 'LaLiga' };
 
 const CLASSIFICA_LALIGA = [
-  'Real Sociedad', 'Elche', 'Alaves', 'Celta Vigo', 'Malaga', 'Vallecano',
-  'Real Madrid', 'Villarreal', 'Barcellona', 'Atl. Madrid', 'Siviglia',
-  'Racing Santander', 'A Coruña', 'Valencia', 'Ath. Bilbao', 'Espanyol',
-  'Betis', 'Getafe', 'Osasuna', 'Levante'
-].map(nome => ({ nome, pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 }));
+  { nome: 'Barcellona', pg: 10, v: 9, n: 0, p: 1, gf: 40, gs: 11, dr: 29, pt: 27 },
+  { nome: 'Atl. Madrid', pg: 10, v: 8, n: 1, p: 1, gf: 20, gs: 8, dr: 12, pt: 25 },
+  { nome: 'Real Madrid', pg: 10, v: 8, n: 0, p: 2, gf: 25, gs: 10, dr: 15, pt: 24 },
+  { nome: 'Betis', pg: 10, v: 6, n: 2, p: 2, gf: 16, gs: 14, dr: 2, pt: 20 },
+  { nome: 'Real Sociedad', pg: 10, v: 6, n: 1, p: 3, gf: 19, gs: 18, dr: 1, pt: 19 },
+  { nome: 'Siviglia', pg: 10, v: 5, n: 2, p: 3, gf: 16, gs: 16, dr: 0, pt: 17 },
+  { nome: 'Alaves', pg: 10, v: 3, n: 3, p: 4, gf: 14, gs: 11, dr: 3, pt: 12 },
+  { nome: 'Ath. Bilbao', pg: 9, v: 3, n: 3, p: 3, gf: 12, gs: 9, dr: 3, pt: 12 },
+  { nome: 'Celta Vigo', pg: 10, v: 2, n: 6, p: 2, gf: 10, gs: 7, dr: 3, pt: 12 },
+  { nome: 'Villarreal', pg: 10, v: 3, n: 3, p: 4, gf: 15, gs: 14, dr: 1, pt: 12 },
+  { nome: 'A Coruña', pg: 10, v: 2, n: 5, p: 3, gf: 13, gs: 13, dr: 0, pt: 11 },
+  { nome: 'Osasuna', pg: 10, v: 3, n: 2, p: 5, gf: 10, gs: 20, dr: -10, pt: 11 },
+  { nome: 'Racing Santander', pg: 10, v: 3, n: 2, p: 5, gf: 15, gs: 26, dr: -11, pt: 11 },
+  { nome: 'Levante', pg: 10, v: 2, n: 4, p: 4, gf: 16, gs: 19, dr: -3, pt: 10 },
+  { nome: 'Elche', pg: 10, v: 2, n: 4, p: 4, gf: 14, gs: 17, dr: -3, pt: 10 },
+  { nome: 'Vallecano', pg: 9, v: 2, n: 3, p: 4, gf: 12, gs: 20, dr: -8, pt: 9 },
+  { nome: 'Getafe', pg: 10, v: 2, n: 3, p: 5, gf: 5, gs: 15, dr: -10, pt: 9 },
+  { nome: 'Espanyol', pg: 10, v: 2, n: 2, p: 6, gf: 12, gs: 14, dr: -2, pt: 8 },
+  { nome: 'Valencia', pg: 10, v: 1, n: 3, p: 6, gf: 7, gs: 17, dr: -10, pt: 6 },
+  { nome: 'Malaga', pg: 10, v: 0, n: 5, p: 5, gf: 7, gs: 19, dr: -12, pt: 5 }
+];
 
 const MATCHES_LALIGA = [
-  { id: 'alaves-getafe', dataOra: '15/08/2026 19:30', stadio: 'Mendizorroza', home: 'Alaves', away: 'Getafe', pronostico: null },
-  { id: 'siviglia-vallecano', dataOra: '15/08/2026 21:30', stadio: 'Ramón Sánchez-Pizjuán', home: 'Siviglia', away: 'Vallecano', pronostico: null },
-  { id: 'racing-santander-villarreal', dataOra: '16/08/2026 17:00', stadio: 'El Sardinero', home: 'Racing Santander', away: 'Villarreal', pronostico: null },
-  { id: 'espanyol-levante', dataOra: '16/08/2026 19:00', stadio: 'RCDE Stadium', home: 'Espanyol', away: 'Levante', pronostico: null },
-  { id: 'celta-vigo-osasuna', dataOra: '16/08/2026 21:30', stadio: 'Balaídos', home: 'Celta Vigo', away: 'Osasuna', pronostico: null },
-  { id: 'a-coruna-elche', dataOra: '17/08/2026 21:00', stadio: 'Abanca-Riazor', home: 'A Coruña', away: 'Elche', pronostico: null },
-  { id: 'atl-madrid-malaga', dataOra: '19/08/2026 21:00', stadio: 'Cívitas Metropolitano', home: 'Atl. Madrid', away: 'Malaga', pronostico: null }
+  { id: 'villarreal-espanyol', dataOra: '30/10/2026 21:00', stadio: 'Estadio de la Cerámica', home: 'Villarreal', away: 'Espanyol', pronostico: null },
+  { id: 'levante-atl-madrid', dataOra: '31/10/2026 14:00', stadio: 'Estadio Ciutat de València', home: 'Levante', away: 'Atl. Madrid', pronostico: null },
+  { id: 'vallecano-celta-vigo', dataOra: '31/10/2026 16:15', stadio: 'Estadio de Vallecas', home: 'Vallecano', away: 'Celta Vigo', pronostico: null },
+  { id: 'betis-malaga', dataOra: '31/10/2026 18:30', stadio: 'Estadio de La Cartuja', home: 'Betis', away: 'Malaga', pronostico: null },
+  { id: 'barcellona-alaves', dataOra: '31/10/2026 21:00', stadio: 'Spotify Camp Nou', home: 'Barcellona', away: 'Alaves', pronostico: null },
+  { id: 'getafe-siviglia', dataOra: '01/11/2026 14:00', stadio: 'Coliseum', home: 'Getafe', away: 'Siviglia', pronostico: null },
+  { id: 'racing-santander-real-madrid', dataOra: '01/11/2026 16:15', stadio: 'El Sardinero', home: 'Racing Santander', away: 'Real Madrid', pronostico: null },
+  { id: 'elche-valencia', dataOra: '01/11/2026 18:30', stadio: 'Estadio Martínez Valero', home: 'Elche', away: 'Valencia', pronostico: null },
+  { id: 'ath-bilbao-real-sociedad', dataOra: '01/11/2026 21:00', stadio: 'San Mamés', home: 'Ath. Bilbao', away: 'Real Sociedad', pronostico: null },
+  { id: 'a-coruna-osasuna', dataOra: '02/11/2026 21:00', stadio: 'Estadio Abanca-Riazor', home: 'A Coruña', away: 'Osasuna', pronostico: null }
 ];
 
 // --- Premier League --------------------------------------------------------
