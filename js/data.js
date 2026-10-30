@@ -230,24 +230,39 @@ const MATCHES_BUNDESLIGA = [
 
 // --- Ligue 1 -------------------------------------------------------------
 
-const GIORNATA_LIGUE1 = { numero: 1, campionato: 'Ligue 1' };
+const GIORNATA_LIGUE1 = { numero: 9, campionato: 'Ligue 1' };
 
 const CLASSIFICA_LIGUE1 = [
-  'Auxerre', 'Le Havre', 'Le Mans', 'Lilla', 'Lorient', 'Monaco', 'Nizza',
-  'PSG', 'Strasburgo', 'Angers', 'Brest', 'Troyes', 'Paris FC', 'Marsiglia',
-  'Tolosa', 'Lens', 'Rennes', 'Lione'
-].map(nome => ({ nome, pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 }));
+  { nome: 'PSG', pg: 8, v: 5, n: 2, p: 1, gf: 16, gs: 9, dr: 7, pt: 17 },
+  { nome: 'Rennes', pg: 8, v: 5, n: 1, p: 2, gf: 18, gs: 14, dr: 4, pt: 16 },
+  { nome: 'Lilla', pg: 8, v: 4, n: 3, p: 1, gf: 11, gs: 6, dr: 5, pt: 15 },
+  { nome: 'Monaco', pg: 8, v: 4, n: 3, p: 1, gf: 11, gs: 7, dr: 4, pt: 15 },
+  { nome: 'Lione', pg: 8, v: 4, n: 2, p: 2, gf: 13, gs: 7, dr: 6, pt: 14 },
+  { nome: 'Paris FC', pg: 8, v: 4, n: 2, p: 2, gf: 13, gs: 9, dr: 4, pt: 14 },
+  { nome: 'Lens', pg: 8, v: 4, n: 1, p: 3, gf: 16, gs: 12, dr: 4, pt: 13 },
+  { nome: 'Marsiglia', pg: 8, v: 4, n: 0, p: 4, gf: 18, gs: 13, dr: 5, pt: 12 },
+  { nome: 'Lorient', pg: 8, v: 3, n: 3, p: 2, gf: 7, gs: 6, dr: 1, pt: 12 },
+  { nome: 'Nizza', pg: 8, v: 3, n: 2, p: 3, gf: 8, gs: 10, dr: -2, pt: 11 },
+  { nome: 'Tolosa', pg: 8, v: 2, n: 4, p: 2, gf: 12, gs: 11, dr: 1, pt: 10 },
+  { nome: 'Auxerre', pg: 8, v: 3, n: 1, p: 4, gf: 12, gs: 18, dr: -6, pt: 10 },
+  { nome: 'Brest', pg: 8, v: 2, n: 3, p: 3, gf: 14, gs: 12, dr: 2, pt: 9 },
+  { nome: 'Angers', pg: 8, v: 2, n: 2, p: 4, gf: 9, gs: 15, dr: -6, pt: 8 },
+  { nome: 'Le Mans', pg: 8, v: 1, n: 4, p: 3, gf: 11, gs: 16, dr: -5, pt: 7 },
+  { nome: 'Strasburgo', pg: 8, v: 2, n: 1, p: 5, gf: 12, gs: 18, dr: -6, pt: 7 },
+  { nome: 'Troyes', pg: 8, v: 1, n: 2, p: 5, gf: 5, gs: 16, dr: -11, pt: 5 },
+  { nome: 'Le Havre', pg: 8, v: 0, n: 2, p: 6, gf: 8, gs: 15, dr: -7, pt: 2 }
+];
 
 const MATCHES_LIGUE1 = [
-  { id: 'marsiglia-strasburgo', dataOra: '21/08/2026 20:45', stadio: 'Stade Vélodrome', home: 'Marsiglia', away: 'Strasburgo', pronostico: null },
-  { id: 'lens-auxerre', dataOra: '22/08/2026 17:15', stadio: 'Stade Bollaert-Delelis', home: 'Lens', away: 'Auxerre', pronostico: null },
-  { id: 'le-mans-brest', dataOra: '22/08/2026 20:45', stadio: 'MMArena', home: 'Le Mans', away: 'Brest', pronostico: null },
-  { id: 'nizza-lorient', dataOra: '22/08/2026 20:45', stadio: 'Allianz Riviera', home: 'Nizza', away: 'Lorient', pronostico: null },
-  { id: 'tolosa-lione', dataOra: '22/08/2026 20:45', stadio: 'Stadium de Toulouse', home: 'Tolosa', away: 'Lione', pronostico: null },
-  { id: 'troyes-paris-fc', dataOra: '22/08/2026 20:45', stadio: "Stade de l'Aube", home: 'Troyes', away: 'Paris FC', pronostico: null },
-  { id: 'angers-lilla', dataOra: '23/08/2026 15:00', stadio: 'Stade Raymond Kopa', home: 'Angers', away: 'Lilla', pronostico: null },
-  { id: 'le-havre-monaco', dataOra: '23/08/2026 17:15', stadio: 'Stade Océane', home: 'Le Havre', away: 'Monaco', pronostico: null },
-  { id: 'psg-rennes', dataOra: '23/08/2026 20:45', stadio: 'Parc des Princes', home: 'PSG', away: 'Rennes', pronostico: null }
+  { id: 'le-havre-psg', dataOra: '30/10/2026 19:00', stadio: 'Stade CMA CGM Océane', home: 'Le Havre', away: 'PSG', pronostico: null },
+  { id: 'nizza-rennes', dataOra: '30/10/2026 19:00', stadio: 'Allianz Riviera', home: 'Nizza', away: 'Rennes', pronostico: null },
+  { id: 'lilla-lens', dataOra: '30/10/2026 21:05', stadio: 'Decathlon Arena – Stade Pierre-Mauroy', home: 'Lilla', away: 'Lens', pronostico: null },
+  { id: 'troyes-le-mans', dataOra: '31/10/2026 20:45', stadio: "Stade de l'Aube", home: 'Troyes', away: 'Le Mans', pronostico: null },
+  { id: 'strasburgo-auxerre', dataOra: '01/11/2026 15:00', stadio: 'Stade de la Meinau', home: 'Strasburgo', away: 'Auxerre', pronostico: null },
+  { id: 'lione-angers', dataOra: '01/11/2026 17:15', stadio: 'Groupama Stadium', home: 'Lione', away: 'Angers', pronostico: null },
+  { id: 'paris-fc-monaco', dataOra: '01/11/2026 17:15', stadio: 'Stade Jean-Bouin', home: 'Paris FC', away: 'Monaco', pronostico: null },
+  { id: 'marsiglia-tolosa', dataOra: '01/11/2026 20:45', stadio: 'CEPAC Vélodrome', home: 'Marsiglia', away: 'Tolosa', pronostico: null },
+  { id: 'lorient-brest', dataOra: '02/11/2026 20:45', stadio: 'Stade du Moustoir', home: 'Lorient', away: 'Brest', pronostico: null }
 ];
 
 // --- LaLiga ----------------------------------------------------------------
