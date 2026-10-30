@@ -41,7 +41,18 @@ const MATCHES = [
     stadio: "Stadio Renato Dall'Ara",
     home: 'Bologna',
     away: 'Monza',
-    pronostico: null
+    pronostico: {
+      esito: 'Goal',
+      quota: 1.75,
+      analisi: [
+        'Il Monza subisce 2,4 gol a partita (22 in 9), peggior difesa insieme al Sassuolo',
+        'Il Monza però segna con continuità: 16 gol, più del Bologna (12)'
+      ],
+      analisiEn: [
+        'Monza concede 2.4 goals per game (22 in 9), joint-worst defence with Sassuolo',
+        'Monza still score regularly: 16 goals, more than Bologna (12)'
+      ]
+    }
   },
   {
     id: 'udinese-roma',
@@ -49,7 +60,18 @@ const MATCHES = [
     stadio: 'Bluenergy Stadium',
     home: 'Udinese',
     away: 'Roma',
-    pronostico: null
+    pronostico: {
+      esito: '2',
+      quota: 1.60,
+      analisi: [
+        'Roma ancora imbattuta (6V 3N) con la seconda miglior difesa (8 gol subiti)',
+        'Udinese 17ª con una sola vittoria e 9 gol segnati'
+      ],
+      analisiEn: [
+        'Roma still unbeaten (6W 3D) with the second-best defence (8 conceded)',
+        'Udinese 17th with just one win and 9 goals scored'
+      ]
+    }
   },
   {
     id: 'milan-inter',
@@ -57,7 +79,18 @@ const MATCHES = [
     stadio: 'Stadio San Siro (Giuseppe Meazza)',
     home: 'Milan',
     away: 'Inter',
-    pronostico: null
+    pronostico: {
+      esito: 'Goal',
+      quota: 1.50,
+      analisi: [
+        'Inter miglior attacco del campionato con 25 gol (2,8 a partita)',
+        'Il Milan segna 2 gol a partita (18 in 9)'
+      ],
+      analisiEn: [
+        "Inter have the league's best attack with 25 goals (2.8 per game)",
+        'Milan score 2 goals per game (18 in 9)'
+      ]
+    }
   },
   {
     id: 'como-venezia',
@@ -65,7 +98,18 @@ const MATCHES = [
     stadio: 'Stadio Giuseppe Sinigaglia',
     home: 'Como',
     away: 'Venezia',
-    pronostico: null
+    pronostico: {
+      esito: 'Goal',
+      quota: 1.60,
+      analisi: [
+        'Como 4° con 17 gol fatti, quasi 2 a partita',
+        "Il Venezia ha cambiato allenatore due giornate fa e sta crescendo: ha battuto il Napoli e ha messo in difficoltà l'Inter"
+      ],
+      analisiEn: [
+        'Como 4th with 17 goals scored, almost 2 per game',
+        'Venezia changed coach two matchdays ago and are improving: they beat Napoli and gave Inter a hard time'
+      ]
+    }
   },
   {
     id: 'frosinone-torino',
@@ -73,7 +117,18 @@ const MATCHES = [
     stadio: 'Stadio Benito Stirpe',
     home: 'Frosinone',
     away: 'Torino',
-    pronostico: null
+    pronostico: {
+      esito: 'Over 2.5',
+      quota: 1.40,
+      analisi: [
+        'Le partite del Frosinone hanno una media di 4 gol (22 fatti, 14 subiti)',
+        'Il Torino ha totalizzato 28 gol complessivi in 9 partite (14 fatti, 14 subiti)'
+      ],
+      analisiEn: [
+        'Frosinone games average 4 goals (22 scored, 14 conceded)',
+        'Torino games total 28 goals in 9 matches (14 for, 14 against)'
+      ]
+    }
   },
   {
     id: 'lazio-cagliari',
@@ -81,7 +136,18 @@ const MATCHES = [
     stadio: 'Stadio Olimpico',
     home: 'Lazio',
     away: 'Cagliari',
-    pronostico: null
+    pronostico: {
+      esito: '1 + Over 2.5',
+      quota: 2.20,
+      analisi: [
+        'Lazio 2ª e imbattuta (8V 1N) con la miglior difesa: 7 gol subiti',
+        'Lazio a segno 2,4 volte a partita; il Cagliari ha differenza reti negativa (−5)'
+      ],
+      analisiEn: [
+        'Lazio 2nd and unbeaten (8W 1D) with the best defence: 7 conceded',
+        'Lazio score 2.4 per game; Cagliari have a negative goal difference (−5)'
+      ]
+    }
   },
   {
     id: 'lecce-genoa',
