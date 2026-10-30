@@ -1,208 +1,119 @@
-// Dati di esempio per GreenPick — Giornata 1, Serie A 2026/27.
+// Dati di esempio per GreenPick — Giornata 10, Serie A 2026/27.
 // Formato pensato per essere lo stesso per tutti i campionati:
 // CLASSIFICA (tabella squadre) e MATCHES (calendario/pronostici) sono
 // due elenchi indipendenti, così un giorno potranno arrivare da fonti
 // dati reali separate senza cambiare la logica di rendering.
 
 const GIORNATA = {
-  numero: 1,
+  numero: 10,
   campionato: 'Serie A'
 };
 
 // Colonne: #, Squadra, PG, V, N, P, GF, GS, DR, Pt
 const CLASSIFICA = [
-  { nome: 'Lecce', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Bologna', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Frosinone', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Genoa', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Napoli', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Udinese', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Monza', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Sassuolo', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Venezia', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Roma', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Inter', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Juventus', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Fiorentina', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Milan', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Atalanta', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Lazio', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Cagliari', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Torino', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Parma', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 },
-  { nome: 'Como', pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 }
+  { nome: 'Inter', pg: 9, v: 8, n: 1, p: 0, gf: 25, gs: 10, dr: 15, pt: 25 },
+  { nome: 'Lazio', pg: 9, v: 8, n: 1, p: 0, gf: 22, gs: 7, dr: 15, pt: 25 },
+  { nome: 'Roma', pg: 9, v: 6, n: 3, p: 0, gf: 23, gs: 8, dr: 15, pt: 21 },
+  { nome: 'Como', pg: 9, v: 6, n: 2, p: 1, gf: 17, gs: 8, dr: 9, pt: 20 },
+  { nome: 'Milan', pg: 9, v: 5, n: 3, p: 1, gf: 18, gs: 11, dr: 7, pt: 18 },
+  { nome: 'Frosinone', pg: 9, v: 5, n: 2, p: 2, gf: 22, gs: 14, dr: 8, pt: 17 },
+  { nome: 'Napoli', pg: 9, v: 4, n: 2, p: 3, gf: 17, gs: 11, dr: 6, pt: 14 },
+  { nome: 'Juventus', pg: 9, v: 4, n: 2, p: 3, gf: 11, gs: 10, dr: 1, pt: 14 },
+  { nome: 'Torino', pg: 9, v: 4, n: 1, p: 4, gf: 14, gs: 14, dr: 0, pt: 13 },
+  { nome: 'Cagliari', pg: 9, v: 4, n: 1, p: 4, gf: 8, gs: 13, dr: -5, pt: 13 },
+  { nome: 'Bologna', pg: 9, v: 3, n: 2, p: 4, gf: 12, gs: 12, dr: 0, pt: 11 },
+  { nome: 'Atalanta', pg: 9, v: 3, n: 2, p: 4, gf: 16, gs: 17, dr: -1, pt: 11 },
+  { nome: 'Genoa', pg: 9, v: 3, n: 1, p: 5, gf: 8, gs: 13, dr: -5, pt: 10 },
+  { nome: 'Lecce', pg: 9, v: 3, n: 0, p: 6, gf: 10, gs: 19, dr: -9, pt: 9 },
+  { nome: 'Sassuolo', pg: 9, v: 2, n: 2, p: 5, gf: 14, gs: 22, dr: -8, pt: 8 },
+  { nome: 'Monza', pg: 9, v: 2, n: 1, p: 6, gf: 16, gs: 22, dr: -6, pt: 7 },
+  { nome: 'Udinese', pg: 9, v: 1, n: 2, p: 6, gf: 9, gs: 18, dr: -9, pt: 5 },
+  { nome: 'Fiorentina', pg: 9, v: 1, n: 2, p: 6, gf: 11, gs: 21, dr: -10, pt: 5 },
+  { nome: 'Parma', pg: 9, v: 1, n: 2, p: 6, gf: 5, gs: 15, dr: -10, pt: 5 },
+  { nome: 'Venezia', pg: 9, v: 1, n: 0, p: 8, gf: 6, gs: 19, dr: -13, pt: 3 }
 ];
 
 // Colonne: Data (con orario), Stadio, Partita
 const MATCHES = [
   {
-    id: 'inter-monza',
-    dataOra: '22/08/2026 18:30',
-    stadio: 'Giuseppe Meazza',
-    home: 'Inter',
+    id: 'bologna-monza',
+    dataOra: '31/10/2026 15:00',
+    stadio: "Stadio Renato Dall'Ara",
+    home: 'Bologna',
     away: 'Monza',
-    pronostico: {
-      esito: '1 (Handicap -1)',
-      quota: 1.66,
-      analisi: [
-        'Inter squadra rodata, poche modifiche rispetto allo scorso anno, campioni in carica',
-        'Monza promossa all’ultimo playoff (miglior classifica regular season vs Catanzaro)',
-        'Juric con risultati negativi nelle ultime stagioni'
-      ],
-      analisiEn: [
-        'Inter are a settled squad with few changes from last season, and enter as defending champions',
-        'Monza earned promotion via the play-offs (a better regular-season record than Catanzaro)',
-        'Juric has posted poor results in his recent seasons'
-      ]
-    }
+    pronostico: null
   },
   {
-    id: 'udinese-como',
-    dataOra: '22/08/2026 18:30',
+    id: 'udinese-roma',
+    dataOra: '31/10/2026 18:00',
     stadio: 'Bluenergy Stadium',
     home: 'Udinese',
-    away: 'Como',
-    pronostico: {
-      esito: 'Goal',
-      quota: 2.05,
-      analisi: [
-        'Como qualificato in Champions ma stagione da iniziare, molti nuovi innesti da assimilare',
-        'Servirà tempo prima che il Como raggiunga il ritmo',
-        'Udine è un campo ostico'
-      ],
-      analisiEn: [
-        'Como qualified for the Champions League, but the season is just starting with many new signings to bed in',
-        'Como will need time to hit their stride',
-        'Udine is a tough away ground'
-      ]
-    }
+    away: 'Roma',
+    pronostico: null
   },
   {
-    id: 'genoa-napoli',
-    dataOra: '22/08/2026 20:45',
-    stadio: 'Luigi Ferraris',
-    home: 'Genoa',
-    away: 'Napoli',
-    pronostico: {
-      esito: 'X (Handicap Napoli -1)',
-      quota: 3.60,
-      analisi: [
-        'Napoli rivoluzionato dall’arrivo di Allegri',
-        'Servirà tempo per l’assestamento della nuova gestione',
-        'Allegri storicamente abituato a vittorie di misura'
-      ],
-      analisiEn: [
-        'Napoli have been reshaped by Allegri’s arrival',
-        'The new management will need time to settle in',
-        'Allegri has historically favoured narrow wins'
-      ]
-    }
+    id: 'milan-inter',
+    dataOra: '31/10/2026 20:45',
+    stadio: 'Stadio San Siro (Giuseppe Meazza)',
+    home: 'Milan',
+    away: 'Inter',
+    pronostico: null
   },
   {
-    id: 'parma-cagliari',
-    dataOra: '22/08/2026 20:45',
-    stadio: 'Ennio Tardini',
-    home: 'Parma',
-    away: 'Cagliari',
-    pronostico: {
-      esito: 'X',
-      quota: 3.10,
-      analisi: [
-        'Partita all’insegna del non perdere punti in avvio di stagione',
-        'Nessun trasferimento rilevante in entrata per il Cagliari',
-        'Parma ha ceduto Pellegrino alla Fiorentina'
-      ],
-      analisiEn: [
-        'Both sides will play it cautiously, keen not to drop points this early in the season',
-        'Cagliari made no significant incoming transfers this window',
-        'Parma sold Pellegrino to Fiorentina'
-      ]
-    }
+    id: 'como-venezia',
+    dataOra: '01/11/2026 12:30',
+    stadio: 'Stadio Giuseppe Sinigaglia',
+    home: 'Como',
+    away: 'Venezia',
+    pronostico: null
   },
   {
-    id: 'frosinone-juventus',
-    dataOra: '23/08/2026 18:30',
-    stadio: 'Benito Stirpe',
+    id: 'frosinone-torino',
+    dataOra: '01/11/2026 15:00',
+    stadio: 'Stadio Benito Stirpe',
     home: 'Frosinone',
-    away: 'Juventus',
+    away: 'Torino',
     pronostico: null
   },
   {
-    id: 'venezia-lecce',
-    dataOra: '23/08/2026 18:30',
-    stadio: 'Pier Luigi Penzo',
-    home: 'Venezia',
-    away: 'Lecce',
-    pronostico: null
-  },
-  {
-    id: 'atalanta-sassuolo',
-    dataOra: '23/08/2026 20:45',
-    stadio: 'Gewiss Stadium',
-    home: 'Atalanta',
-    away: 'Sassuolo',
-    pronostico: {
-      esito: '1',
-      quota: 1.50,
-      analisi: [
-        'Ritorno di un allenatore offensivo sulla panchina Atalanta',
-        'Prima in casa, occasione favorevole',
-        'Sassuolo orfano di Grosso, passato alla Fiorentina'
-      ],
-      analisiEn: [
-        'An attack-minded coach is back on Atalanta’s bench',
-        'A favourable occasion for their home opener',
-        'Sassuolo are without Grosso, who left for Fiorentina'
-      ]
-    }
-  },
-  {
-    id: 'torino-milan',
-    dataOra: '23/08/2026 20:45',
-    stadio: 'Olimpico Grande Torino',
-    home: 'Torino',
-    away: 'Milan',
-    pronostico: null
-  },
-  {
-    id: 'bologna-lazio',
-    dataOra: '24/08/2026 18:30',
-    stadio: "Renato Dall'Ara",
-    home: 'Bologna',
-    away: 'Lazio',
-    pronostico: {
-      esito: 'X',
-      quota: 3.20,
-      analisi: [
-        'Entrambe reduci da cambio allenatore',
-        'Bologna priva dei giocatori chiave delle scorse stagioni',
-        'Lazio in difficoltà societarie, Gattuso subentrato da poco'
-      ],
-      analisiEn: [
-        'Both sides have just changed manager',
-        'Bologna are missing key players from recent seasons',
-        'Lazio are in a difficult spot off the pitch, with Gattuso only recently appointed'
-      ]
-    }
-  },
-  {
-    id: 'roma-fiorentina',
-    dataOra: '24/08/2026 20:45',
+    id: 'lazio-cagliari',
+    dataOra: '01/11/2026 15:00',
     stadio: 'Stadio Olimpico',
-    home: 'Roma',
+    home: 'Lazio',
+    away: 'Cagliari',
+    pronostico: null
+  },
+  {
+    id: 'lecce-genoa',
+    dataOra: '01/11/2026 18:00',
+    stadio: 'Stadio Via del Mare',
+    home: 'Lecce',
+    away: 'Genoa',
+    pronostico: null
+  },
+  {
+    id: 'juventus-napoli',
+    dataOra: '01/11/2026 20:45',
+    stadio: 'Allianz Stadium',
+    home: 'Juventus',
+    away: 'Napoli',
+    pronostico: null
+  },
+  {
+    id: 'sassuolo-fiorentina',
+    dataOra: '02/11/2026 18:30',
+    stadio: 'Mapei Stadium – Città del Tricolore',
+    home: 'Sassuolo',
     away: 'Fiorentina',
-    pronostico: {
-      esito: 'Over 2,5',
-      quota: 1.95,
-      analisi: [
-        'Entrambe squadre propositive con talento offensivo',
-        'Fiorentina rinnovata (rosa e allenatore), in fase di adattamento'
-      ],
-      analisiEn: [
-        'Both sides play proactive, attack-minded football',
-        'Fiorentina have been overhauled (squad and coach) and are still adapting'
-      ]
-    }
+    pronostico: null
+  },
+  {
+    id: 'atalanta-parma',
+    dataOra: '02/11/2026 20:45',
+    stadio: 'New Balance Arena',
+    home: 'Atalanta',
+    away: 'Parma',
+    pronostico: null
   }
 ];
 
