@@ -273,26 +273,42 @@ const MATCHES_LALIGA = [
 
 // --- Premier League --------------------------------------------------------
 
-const GIORNATA_PREMIER = { numero: 1, campionato: 'Premier League' };
+const GIORNATA_PREMIER = { numero: 9, campionato: 'Premier League' };
 
 const CLASSIFICA_PREMIER = [
-  'Arsenal', 'Aston Villa', 'Chelsea', 'Everton', 'Fulham', 'Liverpool',
-  'Manchester City', 'Manchester Utd', 'Newcastle', 'Sunderland', 'Tottenham',
-  'Coventry', 'Crystal Palace', 'Hull', 'Ipswich', 'Bournemouth', 'Brighton',
-  'Leeds', 'Nottingham', 'Brentford'
-].map(nome => ({ nome, pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 }));
+  { nome: 'Manchester City', pg: 8, v: 7, n: 0, p: 1, gf: 20, gs: 9, dr: 11, pt: 21 },
+  { nome: 'Arsenal', pg: 8, v: 7, n: 0, p: 1, gf: 13, gs: 5, dr: 8, pt: 21 },
+  { nome: 'Brighton', pg: 8, v: 5, n: 1, p: 2, gf: 23, gs: 7, dr: 16, pt: 16 },
+  { nome: 'Liverpool', pg: 8, v: 4, n: 3, p: 1, gf: 11, gs: 8, dr: 3, pt: 15 },
+  { nome: 'Chelsea', pg: 8, v: 4, n: 1, p: 3, gf: 17, gs: 15, dr: 2, pt: 13 },
+  { nome: 'Brentford', pg: 8, v: 2, n: 5, p: 1, gf: 14, gs: 9, dr: 5, pt: 11 },
+  { nome: 'Leeds', pg: 8, v: 2, n: 5, p: 1, gf: 9, gs: 6, dr: 3, pt: 11 },
+  { nome: 'Newcastle', pg: 8, v: 3, n: 2, p: 3, gf: 12, gs: 14, dr: -2, pt: 11 },
+  { nome: 'Aston Villa', pg: 8, v: 3, n: 2, p: 3, gf: 9, gs: 12, dr: -3, pt: 11 },
+  { nome: 'Hull', pg: 8, v: 2, n: 4, p: 2, gf: 9, gs: 8, dr: 1, pt: 10 },
+  { nome: 'Everton', pg: 8, v: 2, n: 4, p: 2, gf: 8, gs: 9, dr: -1, pt: 10 },
+  { nome: 'Ipswich', pg: 8, v: 3, n: 1, p: 4, gf: 12, gs: 16, dr: -4, pt: 10 },
+  { nome: 'Bournemouth', pg: 8, v: 2, n: 3, p: 3, gf: 12, gs: 13, dr: -1, pt: 9 },
+  { nome: 'Tottenham', pg: 8, v: 2, n: 3, p: 3, gf: 8, gs: 10, dr: -2, pt: 9 },
+  { nome: 'Fulham', pg: 8, v: 2, n: 2, p: 4, gf: 8, gs: 10, dr: -2, pt: 8 },
+  { nome: 'Manchester Utd', pg: 8, v: 1, n: 4, p: 3, gf: 10, gs: 13, dr: -3, pt: 7 },
+  { nome: 'Crystal Palace', pg: 8, v: 2, n: 1, p: 5, gf: 9, gs: 19, dr: -10, pt: 7 },
+  { nome: 'Nottingham', pg: 8, v: 1, n: 3, p: 4, gf: 6, gs: 10, dr: -4, pt: 6 },
+  { nome: 'Coventry', pg: 8, v: 2, n: 0, p: 6, gf: 6, gs: 15, dr: -9, pt: 6 },
+  { nome: 'Sunderland', pg: 8, v: 1, n: 2, p: 5, gf: 6, gs: 14, dr: -8, pt: 5 }
+];
 
 const MATCHES_PREMIER = [
-  { id: 'arsenal-coventry', dataOra: '21/08/2026 21:00', stadio: 'Emirates Stadium', home: 'Arsenal', away: 'Coventry', pronostico: null },
-  { id: 'hull-manchester-utd', dataOra: '22/08/2026 13:30', stadio: 'MKM Stadium', home: 'Hull', away: 'Manchester Utd', pronostico: null },
-  { id: 'everton-crystal-palace', dataOra: '22/08/2026 16:00', stadio: 'Everton Stadium', home: 'Everton', away: 'Crystal Palace', pronostico: null },
-  { id: 'ipswich-sunderland', dataOra: '22/08/2026 16:00', stadio: 'Portman Road', home: 'Ipswich', away: 'Sunderland', pronostico: null },
-  { id: 'nottingham-leeds', dataOra: '22/08/2026 16:00', stadio: 'City Ground', home: 'Nottingham', away: 'Leeds', pronostico: null },
-  { id: 'brentford-tottenham', dataOra: '22/08/2026 18:30', stadio: 'Gtech Community Stadium', home: 'Brentford', away: 'Tottenham', pronostico: null },
-  { id: 'brighton-aston-villa', dataOra: '23/08/2026 15:00', stadio: 'American Express Stadium', home: 'Brighton', away: 'Aston Villa', pronostico: null },
-  { id: 'manchester-city-bournemouth', dataOra: '23/08/2026 15:00', stadio: 'Etihad Stadium', home: 'Manchester City', away: 'Bournemouth', pronostico: null },
-  { id: 'newcastle-liverpool', dataOra: '23/08/2026 17:30', stadio: "St James' Park", home: 'Newcastle', away: 'Liverpool', pronostico: null },
-  { id: 'fulham-chelsea', dataOra: '24/08/2026 21:00', stadio: 'Craven Cottage', home: 'Fulham', away: 'Chelsea', pronostico: null }
+  { id: 'chelsea-manchester-utd', dataOra: '31/10/2026 13:30', stadio: 'Stamford Bridge', home: 'Chelsea', away: 'Manchester Utd', pronostico: null },
+  { id: 'bournemouth-leeds', dataOra: '31/10/2026 16:00', stadio: 'Vitality Stadium', home: 'Bournemouth', away: 'Leeds', pronostico: null },
+  { id: 'brentford-nottingham', dataOra: '31/10/2026 16:00', stadio: 'Gtech Community Stadium', home: 'Brentford', away: 'Nottingham', pronostico: null },
+  { id: 'coventry-sunderland', dataOra: '31/10/2026 16:00', stadio: 'Coventry Building Society Arena', home: 'Coventry', away: 'Sunderland', pronostico: null },
+  { id: 'hull-ipswich', dataOra: '31/10/2026 16:00', stadio: 'MKM Stadium', home: 'Hull', away: 'Ipswich', pronostico: null },
+  { id: 'manchester-city-brighton', dataOra: '31/10/2026 16:00', stadio: 'Etihad Stadium', home: 'Manchester City', away: 'Brighton', pronostico: null },
+  { id: 'tottenham-crystal-palace', dataOra: '31/10/2026 18:30', stadio: 'Tottenham Hotspur Stadium', home: 'Tottenham', away: 'Crystal Palace', pronostico: null },
+  { id: 'aston-villa-fulham', dataOra: '31/10/2026 21:00', stadio: 'Villa Park', home: 'Aston Villa', away: 'Fulham', pronostico: null },
+  { id: 'liverpool-arsenal', dataOra: '01/11/2026 17:30', stadio: 'Anfield', home: 'Liverpool', away: 'Arsenal', pronostico: null },
+  { id: 'newcastle-everton', dataOra: '02/11/2026 21:00', stadio: "St James' Park", home: 'Newcastle', away: 'Everton', pronostico: null }
 ];
 
 // Dati per campionato, indicizzati per id (lo stesso usato in js/leagues.js).
