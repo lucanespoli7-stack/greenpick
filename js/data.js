@@ -127,24 +127,39 @@ function formatMatchDate(dataOra) {
 
 // --- Bundesliga ---------------------------------------------------------
 
-const GIORNATA_BUNDESLIGA = { numero: 1, campionato: 'Bundesliga' };
+const GIORNATA_BUNDESLIGA = { numero: 8, campionato: 'Bundesliga' };
 
 const CLASSIFICA_BUNDESLIGA = [
-  'Union Berlino', 'Francoforte', 'Bayern', 'Leverkusen', 'Brema', 'Schalke',
-  'Amburgo', 'Dortmund', 'Monchengladbach', 'Hoffenheim', 'Colonia', 'Magonza',
-  'Friburgo', 'Augusta', 'Paderborn', 'Stoccarda', 'Elversberg', 'RB Lipsia'
-].map(nome => ({ nome, pg: 0, v: 0, n: 0, p: 0, gf: 0, gs: 0, dr: 0, pt: 0 }));
+  { nome: 'Bayern', pg: 7, v: 5, n: 2, p: 0, gf: 25, gs: 6, dr: 19, pt: 17 },
+  { nome: 'Dortmund', pg: 7, v: 5, n: 2, p: 0, gf: 12, gs: 4, dr: 8, pt: 17 },
+  { nome: 'Friburgo', pg: 7, v: 4, n: 1, p: 2, gf: 16, gs: 9, dr: 7, pt: 13 },
+  { nome: 'Leverkusen', pg: 7, v: 4, n: 1, p: 2, gf: 16, gs: 12, dr: 4, pt: 13 },
+  { nome: 'RB Lipsia', pg: 7, v: 4, n: 0, p: 3, gf: 20, gs: 11, dr: 9, pt: 12 },
+  { nome: 'Brema', pg: 7, v: 3, n: 3, p: 1, gf: 15, gs: 14, dr: 1, pt: 12 },
+  { nome: 'Magonza', pg: 7, v: 3, n: 1, p: 3, gf: 16, gs: 13, dr: 3, pt: 10 },
+  { nome: 'Elversberg', pg: 7, v: 3, n: 1, p: 3, gf: 12, gs: 15, dr: -3, pt: 10 },
+  { nome: 'Augusta', pg: 7, v: 2, n: 3, p: 2, gf: 17, gs: 13, dr: 4, pt: 9 },
+  { nome: 'Hoffenheim', pg: 7, v: 3, n: 0, p: 4, gf: 14, gs: 14, dr: 0, pt: 9 },
+  { nome: 'Amburgo', pg: 7, v: 3, n: 0, p: 4, gf: 6, gs: 16, dr: -10, pt: 9 },
+  { nome: 'Colonia', pg: 7, v: 2, n: 2, p: 3, gf: 8, gs: 11, dr: -3, pt: 8 },
+  { nome: 'Paderborn', pg: 7, v: 2, n: 2, p: 3, gf: 6, gs: 9, dr: -3, pt: 8 },
+  { nome: 'Francoforte', pg: 7, v: 2, n: 2, p: 3, gf: 10, gs: 17, dr: -7, pt: 8 },
+  { nome: 'Stoccarda', pg: 7, v: 2, n: 0, p: 5, gf: 10, gs: 13, dr: -3, pt: 6 },
+  { nome: 'Schalke', pg: 7, v: 1, n: 3, p: 3, gf: 4, gs: 7, dr: -3, pt: 6 },
+  { nome: 'Union Berlino', pg: 7, v: 1, n: 3, p: 3, gf: 6, gs: 18, dr: -12, pt: 6 },
+  { nome: 'Monchengladbach', pg: 7, v: 1, n: 0, p: 6, gf: 11, gs: 22, dr: -11, pt: 3 }
+];
 
 const MATCHES_BUNDESLIGA = [
-  { id: 'bayern-stoccarda', dataOra: '28/08/2026 20:30', stadio: 'Allianz Arena', home: 'Bayern', away: 'Stoccarda', pronostico: null },
-  { id: 'colonia-hoffenheim', dataOra: '29/08/2026 15:30', stadio: 'RheinEnergieStadion', home: 'Colonia', away: 'Hoffenheim', pronostico: null },
-  { id: 'elversberg-leverkusen', dataOra: '29/08/2026 15:30', stadio: 'Stadion an der Kaiserlinde', home: 'Elversberg', away: 'Leverkusen', pronostico: null },
-  { id: 'magonza-paderborn', dataOra: '29/08/2026 15:30', stadio: 'Mewa Arena', home: 'Magonza', away: 'Paderborn', pronostico: null },
-  { id: 'rb-lipsia-monchengladbach', dataOra: '29/08/2026 15:30', stadio: 'Red Bull Arena Leipzig', home: 'RB Lipsia', away: 'Monchengladbach', pronostico: null },
-  { id: 'union-berlino-francoforte', dataOra: '29/08/2026 15:30', stadio: 'Stadion An der Alten Försterei', home: 'Union Berlino', away: 'Francoforte', pronostico: null },
-  { id: 'dortmund-amburgo', dataOra: '29/08/2026 18:30', stadio: 'Signal Iduna Park', home: 'Dortmund', away: 'Amburgo', pronostico: null },
-  { id: 'friburgo-brema', dataOra: '30/08/2026 15:30', stadio: 'Europa-Park Stadion', home: 'Friburgo', away: 'Brema', pronostico: null },
-  { id: 'augusta-schalke', dataOra: '30/08/2026 17:30', stadio: 'WWK Arena', home: 'Augusta', away: 'Schalke', pronostico: null }
+  { id: 'elversberg-magonza', dataOra: '30/10/2026 20:30', stadio: 'Ursapharm-Arena an der Kaiserlinde', home: 'Elversberg', away: 'Magonza', pronostico: null },
+  { id: 'augusta-friburgo', dataOra: '31/10/2026 15:30', stadio: 'WWK Arena', home: 'Augusta', away: 'Friburgo', pronostico: null },
+  { id: 'brema-hoffenheim', dataOra: '31/10/2026 15:30', stadio: 'Weserstadion', home: 'Brema', away: 'Hoffenheim', pronostico: null },
+  { id: 'leverkusen-stoccarda', dataOra: '31/10/2026 15:30', stadio: 'BayArena', home: 'Leverkusen', away: 'Stoccarda', pronostico: null },
+  { id: 'monchengladbach-paderborn', dataOra: '31/10/2026 15:30', stadio: 'Borussia-Park', home: 'Monchengladbach', away: 'Paderborn', pronostico: null },
+  { id: 'schalke-rb-lipsia', dataOra: '31/10/2026 15:30', stadio: 'Veltins-Arena', home: 'Schalke', away: 'RB Lipsia', pronostico: null },
+  { id: 'bayern-dortmund', dataOra: '31/10/2026 18:30', stadio: 'Allianz Arena', home: 'Bayern', away: 'Dortmund', pronostico: null },
+  { id: 'union-berlino-colonia', dataOra: '01/11/2026 15:30', stadio: 'Stadion An der Alten Försterei', home: 'Union Berlino', away: 'Colonia', pronostico: null },
+  { id: 'francoforte-amburgo', dataOra: '01/11/2026 17:30', stadio: 'Deutsche Bank Park', home: 'Francoforte', away: 'Amburgo', pronostico: null }
 ];
 
 // --- Ligue 1 -------------------------------------------------------------
